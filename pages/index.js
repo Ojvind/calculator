@@ -4,6 +4,7 @@ import TextBox from '../components/textbox';
 const wrapper = {
   display: 'flex',
   'flex-wrap': 'wrap',
+  'justify-content': 'center',
 }  
 //'justify-content': 'flex-start',
 // flex-start | flex-end | center | space-between | space-around | space-evenly;
@@ -28,11 +29,9 @@ export default function Index() {
       <Layer>
         <div style={wrapper}>
           <div style={flexItem}><TextBox>ddd</TextBox></div>
-          <div style={flexItem}>
-              Value 2:
-          </div>
-          <div style={flexItem}>Value 3:</div>
-          <div style={flexItem}>Value 4:</div>
+          <div style={flexItem}><TextBox>ddd</TextBox></div>
+          <div style={flexItem}><TextBox>ddd</TextBox></div>
+          <div style={flexItem}><TextBox>ddd</TextBox></div>
         </div>
       </Layer>
     </div>
