@@ -9,8 +9,9 @@ const Header = () => (
       <a className='linkStyle'>About</a>
     </Link>
     <style jsx global>{`
-      .linkStyle {
+      a {
         margin-right: 15px;
+        color: gray;
       }`}
     </style>
   </div>
