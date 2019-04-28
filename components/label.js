@@ -5,10 +5,6 @@ const propTypes = {
 };
 
 const Label = ({ children} = {}) => {
-    if (typeof children !== 'string') {
-      return false;
-    }
-
     return (
         <span>
             <label>

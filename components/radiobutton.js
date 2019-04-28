@@ -5,9 +5,10 @@ const propTypes = {
     uniqueId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     children: PropTypes.node,
     name: PropTypes.string,
+    checked: PropTypes.bool,
 };
 
-const Radiobutton = ({ children, onChange, uniqueId, name} = {}) => {
+const Radiobutton = ({ children, onChange, uniqueId, name, checked} = {}) => {
     if (typeof onChange !== 'function') {
       return false;
     }
@@ -19,6 +20,7 @@ const Radiobutton = ({ children, onChange, uniqueId, name} = {}) => {
                 name={name}
                 id={uniqueId}
                 type="radio"
+                checked={checked}
             />
             <label htmlFor={uniqueId}>
                 {children}
