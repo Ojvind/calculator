@@ -23,7 +23,35 @@ class ChangeInput extends Component {
     this.sum = this.sum.bind(this);
     this.mul = this.mul.bind(this);
     this.changeState = this.changeState.bind(this);
+    this.validateNumber = this.validateNumber.bind(this);
   }
+
+  validateNumber() {
+    var e = event || window.event;
+    var key = e.keyCode || e.which;
+
+    console.log(key);
+    if (!e.shiftKey && !e.altKey && !e.ctrlKey &&
+    // numbers   
+    key >= 48 && key <= 57 ||
+    // Numeric keypad
+    key >= 98 && key <= 105 ||
+    // Backspace and Tab and Enter
+    key == 8 || key == 9 || key == 13 ||
+    // Home and End
+    key == 35 || key == 36 ||
+    // left and right arrows
+    key == 37 || key == 39 ||
+    // Del and Ins
+    key == 46 || key == 45) {
+        // input is VALID
+    }
+    else {
+        // input is INVALID
+        e.returnValue = false;
+        if (e.preventDefault) e.preventDefault();
+    }
+  };
 
   sum() {
     return parseInt(this.state.textBox1) + parseInt(this.state.textBox2) + parseInt(this.state.textBox3);
@@ -51,15 +79,19 @@ class ChangeInput extends Component {
 
   changeState(textbox, event) {
     let scopedState = this.state;
+    let value = event.target.value;
+    if (value==='') {
+      value=0;
+    };
     switch(textbox) {
       case 'textbox1':
-        scopedState.textBox1 = event.target.value
+        scopedState.textBox1 = value
         break; 
       case 'textbox2':
-        scopedState.textBox2 = event.target.value
+        scopedState.textBox2 = value
       break; 
       case 'textbox3':
-        scopedState.textBox3 = event.target.value
+        scopedState.textBox3 = value
       break; 
     }
     if (scopedState.sum) {
@@ -79,19 +111,22 @@ class ChangeInput extends Component {
             <div className='box parameterBox'>
               <span className='aligner'> 
                 Value 1: <TextBox
-                  onChange={(event) =>this.changeState('textbox1', event)}/>
+                  onChange={(event) =>this.changeState('textbox1', event)}
+                  onKeyPress={this.validateNumber}/>
               </span>
             </div>
             <div className='box parameterBox'>
               <span className='aligner'> 
                 Value 2: <TextBox 
-                  onChange={(event) =>this.changeState('textbox2', event)}/>
+                  onChange={(event) =>this.changeState('textbox2', event)}
+                  onKeyPress={this.validateNumber}/>
               </span>
             </div>
             <div className='box parameterBox'>
               <span className='aligner'> 
                 Value 3: <TextBox 
-                  onChange={(event) =>this.changeState('textbox3', event)}/>
+                  onChange={(event) =>this.changeState('textbox3', event)}
+                  onKeyPress={this.validateNumber}/>
               </span>
             </div>
             <div className='box answerBox'>

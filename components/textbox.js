@@ -5,13 +5,16 @@ const propTypes = {
     children: PropTypes.node,
 };
 
-const TextBox = ({ children, onChange} = {}) => {
+const TextBox = ({ children, onChange, onKeyPress} = {}) => {
     if (typeof onChange !== 'function') {
       return false;
     }
+    if (typeof onKeyPress !== 'function') {
+        return false;
+    }
     return (
         <span>
-            <input onChange={onChange} type='text' value={children}></input>
+            <input onChange={onChange} onKeyPress={onKeyPress} type='text' value={children}></input>
             <style jsx>{`
                 input {
                     width: 30px;
