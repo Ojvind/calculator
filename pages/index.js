@@ -35,7 +35,7 @@ class ChangeInput extends Component {
     // numbers   
     key >= 48 && key <= 57 ||
     // Numeric keypad
-    key >= 98 && key <= 105 ||
+    key >= 98 && key <= 99 ||
     // Backspace and Tab and Enter
     key == 8 || key == 9 || key == 13 ||
     // Home and End
