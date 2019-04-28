@@ -28,6 +28,10 @@ class ChangeInput extends Component {
   sum() {
     return parseInt(this.state.textBox1) + parseInt(this.state.textBox2) + parseInt(this.state.textBox3);
   }
+
+  mul() {
+    return this.state.textBox1 * this.state.textBox2 * this.state.textBox3;
+  }
   
   sumUp() {
     this.setState({
@@ -35,10 +39,6 @@ class ChangeInput extends Component {
       sum: true,
       mul: false,
     });
-  }
-
-  mul() {
-    return this.state.textBox1 * this.state.textBox2 * this.state.textBox3;
   }
 
   multiply() {
@@ -89,18 +89,12 @@ class ChangeInput extends Component {
                 onChange={(event) =>this.changeState('textbox3', event)}/>
             </div>
             <div className='flexItem answerBox'>
-              <RadioButton checked={true} name='arithmetic' onChange={this.sumUp}>Sum</RadioButton>
+              <RadioButton checked={this.state.sum} name='arithmetic' onChange={this.sumUp}>Sum</RadioButton>
               <RadioButton name='arithmetic' onChange={this.multiply}>Multiply</RadioButton>
               Result: <Label>{this.state.result}</Label>
             </div>
           </div>
         </Layout>
-        {this.state.textBox1}<br></br>
-        {this.state.textBox2}<br></br>
-        {this.state.textBox3}<br></br>
-        {this.state.result}<br></br>
-        {this.state.sum}<br></br>
-        {this.state.mul}<br></br>
         <style jsx>{`
           .wrapper {
             display: flex;
