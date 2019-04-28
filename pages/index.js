@@ -156,6 +156,7 @@ class ChangeInput extends Component {
           }
 
           .box {
+            border: solid 1px black;
             padding: 5px;
             width: 250px;
             height: 250px;

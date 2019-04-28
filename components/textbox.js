@@ -19,6 +19,7 @@ const TextBox = ({ children, onChange, onKeyPress} = {}) => {
                 input {
                     width: 30px;
                     margin-left:5px;
+                    border: solid 1px black;
                 }`}
             </style>
         </span>
