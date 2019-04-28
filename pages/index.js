@@ -28,12 +28,9 @@ class ChangeInput extends Component {
   sum() {
     return parseInt(this.state.textBox1) + parseInt(this.state.textBox2) + parseInt(this.state.textBox3);
   }
-
-  mul() {
-    return this.state.textBox1 * this.state.textBox2 * this.state.textBox3;
-  }
   
   sumUp() {
+    console.log('sumUp');
     this.setState({
       result: this.sum(),
       sum: true,
@@ -41,7 +38,12 @@ class ChangeInput extends Component {
     });
   }
 
+  mul() {
+    return this.state.textBox1 * this.state.textBox2 * this.state.textBox3;
+  }
+
   multiply() {
+    console.log('mul');
     this.setState({
       result: this.mul(),
       mul: true,
@@ -76,23 +78,39 @@ class ChangeInput extends Component {
       <div>
         <Layout>
           <div className="wrapper">
-            <div className='flexItem parameterBox'>
-              Value 1: <TextBox
-                onChange={(event) =>this.changeState('textbox1', event)}/>
+            <div className='box parameterBox'>
+              <span className='aligner'> 
+                Value 1: <TextBox
+                  onChange={(event) =>this.changeState('textbox1', event)}/>
+              </span>
             </div>
-            <div className='flexItem parameterBox'>
-              Value 2: <TextBox 
-                onChange={(event) =>this.changeState('textbox2', event)}/>
+            <div className='box parameterBox'>
+              <span className='aligner'> 
+                Value 2: <TextBox 
+                  onChange={(event) =>this.changeState('textbox2', event)}/>
+              </span>
             </div>
-            <div className='flexItem parameterBox'>
-              Value 3: <TextBox 
-                onChange={(event) =>this.changeState('textbox3', event)}/>
+            <div className='box parameterBox'>
+              <span className='aligner'> 
+                Value 3: <TextBox 
+                  onChange={(event) =>this.changeState('textbox3', event)}/>
+              </span>
             </div>
-            <div className='flexItem answerBox'>
-              <RadioButton checked={this.state.sum} name='arithmetic' onChange={this.sumUp}>Sum</RadioButton>
-              <RadioButton name='arithmetic' onChange={this.multiply}>Multiply</RadioButton>
-              Result: <Label>{this.state.result}</Label>
-            </div>
+            <div className='box answerBox'>
+              <div className='aligner'> 
+                <div>
+                  <div className='row'>
+                    <RadioButton checked={this.state.sum} name='arithmetic' onChange={this.sumUp}>Sum</RadioButton>
+                  </div>
+                  <div className='row'>
+                    <RadioButton name='arithmetic' onChange={this.multiply}>Multiply</RadioButton>
+                  </div>
+                  <div className='row'>
+                    Result: <Label>{this.state.result}</Label>
+                  </div>
+                </div>
+                </div>
+              </div>
           </div>
         </Layout>
         <style jsx>{`
@@ -102,7 +120,7 @@ class ChangeInput extends Component {
             justify-content: center;
           }
 
-          .flexItem {
+          .box {
             padding: 5px;
             width: 250px;
             height: 250px;
@@ -122,8 +140,23 @@ class ChangeInput extends Component {
           .parameterBox {
             background: Tomato;
           }
+
+          .aligner {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+      
+          .row {
+            border: solid yellow 0px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 90px;
+          }
         `}</style>
-    </div>
+      </div>
     );
   }
 }
