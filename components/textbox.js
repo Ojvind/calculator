@@ -15,6 +15,7 @@ const TextBox = ({ children, onChange} = {}) => {
             <style jsx>{`
                 input {
                     width: 30px;
+                    margin-left:5px;
                 }`}
             </style>
         </span>

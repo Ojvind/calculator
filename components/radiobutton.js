@@ -25,6 +25,11 @@ const Radiobutton = ({ children, onChange, uniqueId, name, checked} = {}) => {
             <label htmlFor={uniqueId}>
                 {children}
             </label>
+            <style jsx>{`
+                input {
+                    margin-right:5px;
+                }`}
+            </style>
         </div>
     );
 };

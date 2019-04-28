@@ -30,7 +30,6 @@ class ChangeInput extends Component {
   }
   
   sumUp() {
-    console.log('sumUp');
     this.setState({
       result: this.sum(),
       sum: true,
@@ -43,7 +42,6 @@ class ChangeInput extends Component {
   }
 
   multiply() {
-    console.log('mul');
     this.setState({
       result: this.mul(),
       mul: true,
@@ -105,7 +103,7 @@ class ChangeInput extends Component {
                   <div className='row'>
                     <RadioButton name='arithmetic' onChange={this.multiply}>Multiply</RadioButton>
                   </div>
-                  <div className='row'>
+                  <div className='row padding'>
                     Result: <Label>{this.state.result}</Label>
                   </div>
                 </div>
@@ -118,6 +116,8 @@ class ChangeInput extends Component {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            margin: 15px;
+            padding:20px;
           }
 
           .box {
@@ -126,19 +126,21 @@ class ChangeInput extends Component {
             height: 250px;
             margin-top: 10px;
             margin-right: 10px;
-            color: white;
             font-weight: bold;
-            font-size: 1em;
             text-align: center;
             align-items: center;
           }
 
           .answerBox {
-            background: Red;
+            background: pink;
           }
 
           .parameterBox {
-            background: Tomato;
+            background: lightblue;
+          }
+
+          .padding {
+            padding-top: 20px;
           }
 
           .aligner {

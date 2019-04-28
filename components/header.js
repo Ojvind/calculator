@@ -12,7 +12,18 @@ const Header = () => (
       a {
         margin-right: 15px;
         color: gray;
-      }`}
+      }
+
+      body {
+        font-family: Verdana;
+        font-size: 14px;
+      }
+
+      img {
+        width: 50%;
+      }
+
+    `}
     </style>
   </div>
 )
