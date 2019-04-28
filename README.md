@@ -13,7 +13,8 @@ Install all the dependencies:
 `yarn install`
 
 Start the app:  
-`yarn dev`
+`yarn dev`  
+or `npm run dev`
 
 Browse to:  
 `http://localhost:3000`
