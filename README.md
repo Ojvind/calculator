@@ -9,7 +9,7 @@ Clone the repo:
 Install all the dependencies:  
 `npm install`
 
-...or if you like me prefer yarn:  
+...or if you (like me) prefer yarn:  
 `yarn install`
 
 Start the app:  
